@@ -1,0 +1,20 @@
+name: AdminTools
+version: 1.0
+author: rens4000
+main: nl.rens4000.admintools.AdminTools
+commands:
+  report:
+    description: Report a player.
+    aliases: [r, rep]
+  reports:
+    description: Admin command for reports.
+    aliases: [rs, reps]
+  freeze:
+    description: Freeze a player.
+  userinfo:
+    description: Show the info of a player.
+    aliases: [user]
+  vanish:
+    description: Become invisible.
+  admintools:
+    description: Main plugin command.
