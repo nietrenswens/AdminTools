@@ -27,6 +27,11 @@ public class AdminToolsCMD implements CommandExecutor{
 		if(args[0].equalsIgnoreCase("help")) {
 			sender.sendMessage(ChatUtilities.PREFIX + "-========================================-");
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/admintools" + ChatColor.BLUE + " - Main command of the plugin.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/freeze <player>" + ChatColor.BLUE + " - Freezes a player.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/report <player> <reason of report>" + ChatColor.BLUE + " - Player report command.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/reports" + ChatColor.BLUE + " - Main command of the reports handling.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/userinfo <user>" + ChatColor.BLUE + " - Shows you some information about the given player.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/vanish" + ChatColor.BLUE + " - Become invisible.");
 			sender.sendMessage(ChatUtilities.PREFIX + "-========================================-");
 			return false;
 		} else {
