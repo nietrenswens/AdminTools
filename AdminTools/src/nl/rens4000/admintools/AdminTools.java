@@ -12,11 +12,13 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import nl.rens4000.admintools.commands.AdminToolsCMD;
+import nl.rens4000.admintools.commands.ChatManager;
 import nl.rens4000.admintools.commands.FreezeCMD;
 import nl.rens4000.admintools.commands.ReportCMD;
 import nl.rens4000.admintools.commands.ReportsCMD;
 import nl.rens4000.admintools.commands.UserInfoCMD;
 import nl.rens4000.admintools.commands.VanishCMD;
+import nl.rens4000.admintools.events.ChatEvent;
 import nl.rens4000.admintools.events.CommandEvent;
 import nl.rens4000.admintools.events.JoinEvent;
 import nl.rens4000.admintools.events.LeaveEvent;
@@ -51,12 +53,14 @@ public class AdminTools extends JavaPlugin {
 		getCommand("vanish").setExecutor(new VanishCMD());
 		getCommand("userinfo").setExecutor(new UserInfoCMD());
 		getCommand("admintools").setExecutor(new AdminToolsCMD());
+		getCommand("chatmanager").setExecutor(new ChatManager());
 		
 		//Load events
 		pm.registerEvents(new CommandEvent(), this);
 		pm.registerEvents(new LeaveEvent(), this);
 		pm.registerEvents(new JoinEvent(), this);
 		pm.registerEvents(new MoveEvent(), this);
+		pm.registerEvents(new ChatEvent(), this);
 		
 		//Load all reports
 		ReportManager.getReportManager().loadAllReports();

@@ -9,7 +9,7 @@ import nl.rens4000.admintools.AdminTools;
 import nl.rens4000.admintools.utils.ChatUtilities;
 import nl.rens4000.admintools.utils.ChatUtils;
 
-public class AdminToolsCMD implements CommandExecutor{
+public class AdminToolsCMD implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -32,6 +32,7 @@ public class AdminToolsCMD implements CommandExecutor{
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/reports" + ChatColor.BLUE + " - Main command of the reports handling.");
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/userinfo <user>" + ChatColor.BLUE + " - Shows you some information about the given player.");
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/vanish" + ChatColor.BLUE + " - Become invisible.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/chatmanager" + ChatColor.BLUE + " - Main command of the chatmanagement handling.");
 			sender.sendMessage(ChatUtilities.PREFIX + "-========================================-");
 			return false;
 		} else {
