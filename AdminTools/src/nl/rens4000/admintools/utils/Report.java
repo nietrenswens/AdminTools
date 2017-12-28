@@ -7,15 +7,25 @@ public class Report {
 	private String reporter;
 	private String reason;
 	private ReportState reportState;
+	private int date;
 	
-	public Report(int id, String name, String reporter, String reason, ReportState reportState) {
+	public Report(int id, String name, String reporter, String reason, ReportState reportState, int date) {
 		this.id = id;
 		this.name = name;
 		this.reporter = reporter;
 		this.reason = reason;
 		this.reportState = reportState;
+		this.date = date;
 	}
 	
+	public int getDate() {
+		return date;
+	}
+
+	public void setDate(int date) {
+		this.date = date;
+	}
+
 	public int getId() {
 		return id;
 	}

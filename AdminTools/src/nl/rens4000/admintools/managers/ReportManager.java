@@ -1,5 +1,6 @@
 package nl.rens4000.admintools.managers;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +45,8 @@ public class ReportManager {
 	
 	public int createReport(String reporter, String name, String reason, Player p) {
 		int newId = getHeighestId() + 1;
-		Report r = new Report(newId, name, reporter, reason, ReportState.OPEN);
+		int i = (int) (new Date().getTime()/1000);
+		Report r = new Report(newId, name, reporter, reason, ReportState.OPEN, i);
 		reports.put(newId, r);
 		ChatUtilities.broadcastTitleThroughAdmins(ChatColor.AQUA + reporter, ChatColor.GREEN + "has made a report!");
 		ChatUtilities.broadcastThroughAdmins(ChatColor.AQUA + reporter + ChatColor.WHITE + " has made a report about: " + ChatColor.AQUA + name + "(" + newId + ")");
@@ -71,13 +73,14 @@ public class ReportManager {
 			String reporter = cm.getReports().getString("reports." + id + ".reporter");
 			String reason = cm.getReports().getString("reports." + id + ".reason");
 			String state = cm.getReports().getString("reports." + id + ".state");
-			loadReport(ids, name, reporter, reason, state);
+			int date = cm.getReports().getInt("reports." + id + ".date");
+			loadReport(ids, name, reporter, reason, state, date);
 		}
 	}
 	
-	public void loadReport(int id, String name, String reporter, String reason, String state) {
+	public void loadReport(int id, String name, String reporter, String reason, String state, int date) {
 		ReportState s = getStateFromString(state);
-		Report r = new Report(id, name, reporter, reason, s);
+		Report r = new Report(id, name, reporter, reason, s, date);
 		reports.put(id, r);
 	}
 	
@@ -108,6 +111,8 @@ public class ReportManager {
 		rep.set("reports." + id + ".reporter", reporter);
 		rep.set("reports." + id + ".reason", reason);
 		rep.set("reports." + id + ".state", state);
+		rep.set("reports." + id + ".date", r.getDate());
+		AdminTools.getAdminTools().getLogger().info("Saved report : " + id);
 		cm.save();
 	}
 	

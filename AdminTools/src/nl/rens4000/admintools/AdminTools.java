@@ -33,6 +33,8 @@ public class AdminTools extends JavaPlugin {
 	
 	private static AdminTools adminTools;
 	
+	private boolean slowchat = false;
+	
 	@Override
 	public void onEnable() {
 		users = new HashMap<UUID, User>();
@@ -74,9 +76,18 @@ public class AdminTools extends JavaPlugin {
 		config.addDefault("messages.vanishjoinmessage", "&e%player% joined the game.");
 		config.addDefault("reports.delaybetweenreport", 60);
 		config.addDefault("reports.allowreporterstoseestatechanges", true);
+		config.addDefault("chatmanager.slowchattime", 5);
 		
 		config.options().copyDefaults(true);
 		ConfigManager.getConfigManager().save();
+	}
+	
+	public boolean getSlowchat() {
+		return slowchat;
+	}
+	
+	public void setSlowchat(boolean b) {
+		this.slowchat = b;
 	}
 
 	public User getUser(UUID u) {
@@ -85,9 +96,15 @@ public class AdminTools extends JavaPlugin {
 	
 	@Override
 	public void onDisable() {
+		ReportManager.getReportManager().saveAllReports();
 		for(Player p : Bukkit.getOnlinePlayers()) {
-			p.kickPlayer(ChatColor.RED + "The server is being restarted/reloaded! (Reloads aren't supported, you know?)");
+			if(p.hasPermission("Admintools.admin")) {
+				p.kickPlayer(ChatColor.RED + "The server is being restarted/shutdown. \n NOTE: RELOADS AREN'T SUPPORTED! THIS WILL SCREW UP THE CONFIG OF: " + ChatColor.AQUA + "AdminTools." + ChatColor.RED + "\n If this is a reload, make sure to restart the server.");
+				return;
+			}
+			p.kickPlayer(ChatColor.RED + "The server is being restarted/shutdown!");
 		}
+		
 	}
 	
 	public static AdminTools getAdminTools() {

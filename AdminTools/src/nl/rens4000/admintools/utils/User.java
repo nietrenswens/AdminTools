@@ -10,7 +10,7 @@ public class User {
 	private int timesBeenReported;
 	private boolean vanished;
 	private int reportDelay;
-	
+
 	public User(Player p, boolean frozen, int logins, int timesBeenReported, boolean vanished, int reportDelay) {
 		this.p = p;
 		this.frozen = frozen;

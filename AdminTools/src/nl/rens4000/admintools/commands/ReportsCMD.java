@@ -1,5 +1,7 @@
 package nl.rens4000.admintools.commands;
 
+import java.util.Date;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -179,6 +181,7 @@ public class ReportsCMD implements CommandExecutor {
 		p.sendMessage(ChatUtilities.PREFIX + "Reporter: " + r.getReporter());
 		p.sendMessage(ChatUtilities.PREFIX + "Reason: " + r.getReason());
 		p.sendMessage(ChatUtilities.PREFIX + "State: " + r.getReportState().getMessage());
+		p.sendMessage(ChatUtilities.PREFIX + "Date: " + new Date(((long)r.getDate())*1000L));
 		p.sendMessage(ChatUtilities.PREFIX + "-========================================-");
 		return false;
 	}

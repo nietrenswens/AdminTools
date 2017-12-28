@@ -1,5 +1,5 @@
 name: AdminTools
-version: 1.0
+version: 1.3
 author: rens4000
 main: nl.rens4000.admintools.AdminTools
 commands:
@@ -18,3 +18,6 @@ commands:
     description: Become invisible.
   admintools:
     description: Main plugin command.
+  chatmanager:
+    description: Admin command for the chatmanager.
+    aliases: [chatm, cm, cmanager]
