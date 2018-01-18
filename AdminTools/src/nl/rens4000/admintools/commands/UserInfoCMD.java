@@ -21,7 +21,7 @@ public class UserInfoCMD implements CommandExecutor{
 			return false;
 		}
 		Player p = (Player) sender;
-		if(!p.hasPermission("Admintools.Admin")) {
+		if(!p.hasPermission("Admintools.UserInfo")) {
 			p.sendMessage(ChatUtils.NO_PERM.getMessage());
 			return false;
 		}
@@ -49,6 +49,7 @@ public class UserInfoCMD implements CommandExecutor{
 		p.sendMessage(ChatUtilities.PREFIX + "Logins: " + ChatColor.AQUA + u.getLogins());
 		p.sendMessage(ChatUtilities.PREFIX + "Frozen: " + ChatColor.AQUA + u.isFrozen());
 		p.sendMessage(ChatUtilities.PREFIX + "Times been reported: " + ChatColor.AQUA + u.getTimesBeenReported());
+		p.sendMessage(ChatUtilities.PREFIX + "Vanished: " + ChatColor.AQUA + u.isVanished());
 		p.sendMessage(ChatUtilities.PREFIX + "-========================================-");
 		
 		return false;

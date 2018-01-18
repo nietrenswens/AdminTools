@@ -24,7 +24,7 @@ public class ReportsCMD implements CommandExecutor {
 			return false;
 		}
 		Player p = (Player) sender;
-		if(!p.hasPermission("Admintools.Admin")) {
+		if(!p.hasPermission("Admintools.Reports")) {
 			p.sendMessage(ChatUtils.NO_PERM.getMessage());
 			return false;
 		}

@@ -10,16 +10,26 @@ public class User {
 	private int timesBeenReported;
 	private boolean vanished;
 	private int reportDelay;
+	private boolean commandSpy;
 
-	public User(Player p, boolean frozen, int logins, int timesBeenReported, boolean vanished, int reportDelay) {
+	public User(Player p, boolean frozen, int logins, int timesBeenReported, boolean vanished, int reportDelay, boolean commandSpy) {
 		this.p = p;
 		this.frozen = frozen;
 		this.logins = logins;
 		this.timesBeenReported = timesBeenReported;
 		this.vanished = vanished;
 		this.reportDelay = reportDelay;
+		this.commandSpy = commandSpy;
 	}
 	
+	public boolean isCommandSpy() {
+		return commandSpy;
+	}
+
+	public void setCommandSpy(boolean commandSpy) {
+		this.commandSpy = commandSpy;
+	}
+
 	public int getReportDelay() {
 		return reportDelay;
 	}

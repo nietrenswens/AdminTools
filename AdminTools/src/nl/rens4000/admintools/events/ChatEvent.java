@@ -24,10 +24,10 @@ public class ChatEvent implements Listener {
 	@EventHandler
 	public void onChat(AsyncPlayerChatEvent e) {
 		if(e.getMessage().startsWith("!")) {
-			if(e.getPlayer().hasPermission("Admintools.Admin")) {
+			if(e.getPlayer().hasPermission("Admintools.StaffChat")) {
 				e.setCancelled(true);
 				for(Player p : Bukkit.getOnlinePlayers()) {
-					if(p.hasPermission("Admintools.Admin")) {
+					if(p.hasPermission("Admintools.StaffChat")) {
 						p.sendMessage(ChatColor.AQUA + "AdminChat: " + ChatColor.GREEN + e.getPlayer().getName() + "" + e.getMessage().replace('!', ' '));
 					}
 				return;
@@ -35,7 +35,7 @@ public class ChatEvent implements Listener {
 			}
 		}
 		if(AdminTools.getAdminTools().getSlowchat()) {
-			if(e.getPlayer().hasPermission("Admintools.Admin")) return;
+			if(e.getPlayer().hasPermission("Admintools.bypass.SlowChat")) return;
 			if(cooldown.containsKey(e.getPlayer().getName())) {
 				e.getPlayer().sendMessage(ChatUtilities.PREFIX + "Slow chat is activated! Please, wait: " + cooldown.get(e.getPlayer().getName()) + " seconds.");
 				e.setCancelled(true);
@@ -55,6 +55,16 @@ public class ChatEvent implements Listener {
 				}
 				
 			}.runTaskTimerAsynchronously(AdminTools.getAdminTools(), 0, 20);
+		}
+	}
+	
+	@EventHandler
+	public void swearCheck(AsyncPlayerChatEvent e) {
+		for(String s : e.getMessage().split(" ")) {
+			if(AdminTools.getAdminTools().getSwear().contains(s)) {
+				e.setCancelled(true);
+				e.getPlayer().sendMessage(ChatUtilities.PREFIX + "" + ChatColor.RED + "Swearing is not allowed!");
+			}
 		}
 	}
 

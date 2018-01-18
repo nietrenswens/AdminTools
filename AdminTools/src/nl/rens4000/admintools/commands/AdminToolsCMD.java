@@ -33,6 +33,7 @@ public class AdminToolsCMD implements CommandExecutor {
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/userinfo <user>" + ChatColor.BLUE + " - Shows you some information about the given player.");
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/vanish" + ChatColor.BLUE + " - Become invisible.");
 			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/chatmanager" + ChatColor.BLUE + " - Main command of the chatmanagement handling.");
+			sender.sendMessage(ChatUtilities.PREFIX + ChatColor.AQUA + "/commandspy" + ChatColor.BLUE + " - See which commands your players execute.");
 			sender.sendMessage(ChatUtilities.PREFIX + "-========================================-");
 			return false;
 		} else {

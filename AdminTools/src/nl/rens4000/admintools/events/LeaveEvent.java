@@ -19,6 +19,7 @@ public class LeaveEvent implements Listener {
 		cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".timesBeenReported", u.getTimesBeenReported());
 		cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".vanished", u.isVanished());
 		cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".reportDelay", u.getReportDelay());
+		cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".commandspy", u.isCommandSpy());
 		AdminTools.getAdminTools().getLogger().info("Saved info of: " + u.getPlayer().getName());
 		cm.save();
 	}

@@ -19,6 +19,9 @@ public class ConfigManager {
 	private File usersFile;
 	private FileConfiguration users;
 	
+	private File swearWordsFile;
+	private FileConfiguration swearWords;
+	
 	private static ConfigManager configManager;
 	
 	public ConfigManager(AdminTools at) {
@@ -29,6 +32,8 @@ public class ConfigManager {
 		reports = YamlConfiguration.loadConfiguration(reportsFile);
 		usersFile = new File(at.getDataFolder(), "users.yml");
 		setUsers(YamlConfiguration.loadConfiguration(usersFile));
+		swearWordsFile = new File(at.getDataFolder(), "swearwords.yml");
+		swearWords = YamlConfiguration.loadConfiguration(swearWordsFile);
 	}
 	
 	public void save() {
@@ -36,9 +41,18 @@ public class ConfigManager {
 			config.save(configFile);
 			reports.save(reportsFile);
 			users.save(usersFile);
+			swearWords.save(swearWordsFile);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public File getSwearWordsFile() {
+		return swearWordsFile;
+	}
+
+	public FileConfiguration getSwearWords() {
+		return swearWords;
 	}
 
 	public File getConfigFile() {

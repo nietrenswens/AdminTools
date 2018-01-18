@@ -27,13 +27,15 @@ public class JoinEvent implements Listener {
 			cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".timesBeenReported", 0);
 			cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".vanished", false);
 			cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".reportDelay", 0);
+			cm.getUsers().set("users." + e.getPlayer().getUniqueId() + ".commandspy", false);
 			cm.save();
 		}
 		User u = new User(e.getPlayer(), cm.getUsers().getBoolean("users." + e.getPlayer().getUniqueId() + ".frozen"), 
 				cm.getUsers().getInt("users." + e.getPlayer().getUniqueId() + ".logins"), 
 				cm.getUsers().getInt("users." + e.getPlayer().getUniqueId() + ".timesBeenReported"),
 				cm.getUsers().getBoolean("users." + e.getPlayer().getUniqueId() + ".vanished"),
-				cm.getUsers().getInt("users." + e.getPlayer().getUniqueId() + ".reportDelay"));
+				cm.getUsers().getInt("users." + e.getPlayer().getUniqueId() + ".reportDelay"),
+				cm.getUsers().getBoolean("users." + e.getPlayer().getUniqueId() + ".commandspy"));
 				u.setLogins(u.getLogins() + 1);
 				AdminTools.getAdminTools().users.put(e.getPlayer().getUniqueId(), u);
 				AdminTools.getAdminTools().getLogger().info("Added user: " + e.getPlayer().getUniqueId());

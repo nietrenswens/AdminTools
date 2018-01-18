@@ -1,5 +1,5 @@
 name: AdminTools
-version: 1.3
+version: 1.4
 author: rens4000
 main: nl.rens4000.admintools.AdminTools
 commands:
@@ -21,3 +21,6 @@ commands:
   chatmanager:
     description: Admin command for the chatmanager.
     aliases: [chatm, cm, cmanager]
+  commandspy:
+    description: See which command your players execute.
+    aliases: [cs]
