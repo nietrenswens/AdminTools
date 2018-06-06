@@ -20,6 +20,11 @@ public class CommandEvent implements Listener {
 			e.getPlayer().sendTitle(ChatColor.RED + "You have been frozen!", ChatColor.AQUA + "By an admin!");
 			e.setCancelled(true);
 		}
+		if(u.isCommandBlocked()) {
+			e.getPlayer().sendMessage(ChatUtilities.PREFIX + "You can't execute that command because you are command blocked!");
+			e.getPlayer().sendTitle(ChatColor.RED + "Failed", ChatColor.WHITE + "We couldn't send the request");
+			e.setCancelled(true);
+		}
 	}
 	
 	@EventHandler

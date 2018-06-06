@@ -11,8 +11,9 @@ public class User {
 	private boolean vanished;
 	private int reportDelay;
 	private boolean commandSpy;
+	private boolean commandBlocked;
 
-	public User(Player p, boolean frozen, int logins, int timesBeenReported, boolean vanished, int reportDelay, boolean commandSpy) {
+	public User(Player p, boolean frozen, int logins, int timesBeenReported, boolean vanished, int reportDelay, boolean commandSpy, boolean commandBlocked) {
 		this.p = p;
 		this.frozen = frozen;
 		this.logins = logins;
@@ -20,6 +21,7 @@ public class User {
 		this.vanished = vanished;
 		this.reportDelay = reportDelay;
 		this.commandSpy = commandSpy;
+		this.commandBlocked = commandBlocked;
 	}
 	
 	public boolean isCommandSpy() {
@@ -76,6 +78,14 @@ public class User {
 
 	public void setTimesBeenReported(int timesBeenReported) {
 		this.timesBeenReported = timesBeenReported;
+	}
+	
+	public boolean isCommandBlocked() {
+		return commandBlocked;
+	}
+	
+	public void setCommandBlocked(boolean commandBlocked) {
+		this.commandBlocked = commandBlocked;
 	}
 
 }
